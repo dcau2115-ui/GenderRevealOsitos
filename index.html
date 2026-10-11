@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#f6efe5">
+<meta name="description" content="Gender Reveal - 31 de octubre de 2026. ¡Te esperamos!">
 
 <title>Gender Reveal | Nuestra Dulce Espera</title>
 
@@ -18,7 +19,6 @@
   --marfil: #fffaf3;
   --beige: #e9d8c2;
   --arena: #d8bb99;
-  --marron-claro: #b68d6b;
   --cafe: #76533e;
   --chocolate: #493126;
   --dorado: #b5956c;
@@ -50,7 +50,7 @@ button {
   cursor: pointer;
 }
 
-/* INTRODUCCIÓN */
+/* INTRODUCCIÓN CON VIDEO */
 
 #intro {
   position: fixed;
@@ -87,8 +87,8 @@ button {
   text-align: center;
   background: linear-gradient(
     145deg,
-    rgba(45,31,23,.94),
-    rgba(100,72,51,.94)
+    rgba(45,31,23,.96),
+    rgba(100,72,51,.96)
   );
   padding: 25px;
 }
@@ -107,19 +107,19 @@ button {
 
 #pantallaInicio p {
   color: #f5e8d8;
-  max-width: 400px;
-  line-height: 1.9;
+  max-width: 380px;
+  line-height: 1.8;
   margin-bottom: 30px;
 }
 
 .btn-iniciar {
   border: none;
   border-radius: 40px;
-  padding: 18px 32px;
+  padding: 18px 30px;
   background: #f1dcc0;
   color: #493126;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 13px;
   animation: latido 2s infinite;
 }
 
@@ -162,7 +162,7 @@ button {
   padding: 25px;
   opacity: 0;
   visibility: hidden;
-  transition: 1s ease;
+  transition: opacity 1s ease, visibility 1s ease;
 }
 
 #pantallaFinal.visible {
@@ -180,15 +180,15 @@ button {
 
 #pantallaFinal p {
   color: #f4e6d7;
-  line-height: 1.9;
-  max-width: 400px;
+  line-height: 1.8;
+  max-width: 380px;
   margin-bottom: 30px;
 }
 
 .btn-entrar {
   background: #f1ddc5;
   color: #493126;
-  padding: 18px 32px;
+  padding: 18px 30px;
   border: none;
   border-radius: 40px;
   font-weight: 700;
@@ -219,6 +219,8 @@ button {
   }
 }
 
+/* PORTADA PRINCIPAL */
+
 .hero {
   min-height: 100svh;
   background:
@@ -233,7 +235,7 @@ button {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 75px 22px;
+  padding: 65px 22px;
   position: relative;
   overflow: hidden;
 }
@@ -246,6 +248,7 @@ button {
   height: 300px;
   border: 1px solid rgba(135,94,60,.2);
   border-radius: 50%;
+  pointer-events: none;
 }
 
 .hero::before {
@@ -264,18 +267,18 @@ button {
   text-transform: uppercase;
   font-size: 11px;
   font-weight: 700;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .ornamento {
   color: var(--dorado);
-  font-size: 30px;
-  margin: 15px;
+  font-size: 28px;
+  margin: 12px;
 }
 
 .hero h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(55px, 11vw, 105px);
+  font-size: clamp(54px, 11vw, 100px);
   font-weight: 500;
   color: var(--cafe);
   line-height: 1.1;
@@ -290,37 +293,88 @@ button {
 }
 
 .linea {
-  width: 90px;
+  width: 85px;
   height: 1px;
   background: var(--dorado);
-  margin: 32px auto;
+  margin: 24px auto;
 }
 
 .frase {
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  font-size: clamp(17px, 3vw, 22px);
+  font-size: clamp(17px, 3vw, 21px);
   color: #765d49;
+  max-width: 500px;
+  line-height: 1.7;
+}
+
+/* CUENTA REGRESIVA EN PORTADA */
+
+.contador-portada {
+  margin-top: 32px;
+  width: 100%;
   max-width: 540px;
-  line-height: 1.9;
+}
+
+.contador-titulo {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--cafe);
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.contador {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: nowrap;
+}
+
+.tiempo {
+  width: 105px;
+  background: rgba(255,250,243,.65);
+  border: 1px solid rgba(174,138,92,.35);
+  border-radius: 14px;
+  padding: 19px 8px;
+  backdrop-filter: blur(5px);
+}
+
+.tiempo strong {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  color: var(--cafe);
+  font-weight: 500;
+  font-size: 35px;
+  font-variant-numeric: tabular-nums;
+}
+
+.tiempo span {
+  display: block;
+  margin-top: 7px;
+  color: #987658;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
 }
 
 .fecha-principal {
-  margin-top: 45px;
+  margin-top: 30px;
   border-top: 1px solid #c9a984;
   border-bottom: 1px solid #c9a984;
-  padding: 20px 30px;
+  padding: 17px 25px;
   font-family: 'Playfair Display', serif;
-  font-size: 20px;
+  font-size: 19px;
   letter-spacing: 2px;
   color: var(--cafe);
 }
 
 .desliza {
-  margin-top: 55px;
+  margin-top: 35px;
   color: var(--dorado);
   letter-spacing: 2px;
-  font-size: 11px;
+  font-size: 10px;
   animation: flotar 2s infinite;
 }
 
@@ -332,7 +386,7 @@ button {
 /* SECCIONES */
 
 section {
-  padding: 90px 20px;
+  padding: 85px 20px;
   text-align: center;
 }
 
@@ -356,14 +410,14 @@ section {
   font-size: clamp(30px, 5vw, 46px);
   font-weight: 500;
   line-height: 1.3;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
 }
 
 .texto {
   font-size: 15px;
   color: #806956;
-  line-height: 2;
-  max-width: 590px;
+  line-height: 1.9;
+  max-width: 560px;
   margin: auto;
 }
 
@@ -375,7 +429,7 @@ section {
   font-family: 'Great Vibes', cursive;
   color: var(--dorado);
   font-size: clamp(42px, 7vw, 65px);
-  margin: 35px 0;
+  margin: 30px 0;
 }
 
 /* DETALLES */
@@ -388,7 +442,7 @@ section {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 22px;
-  margin-top: 45px;
+  margin-top: 40px;
 }
 
 .tarjeta {
@@ -396,7 +450,7 @@ section {
   border: 1px solid #e3cfb7;
   border-radius: 150px 150px 18px 18px;
   padding: 45px 20px 38px;
-  min-height: 270px;
+  min-height: 265px;
 }
 
 .tarjeta .icono {
@@ -464,10 +518,10 @@ section {
 
 .dresscode-marco {
   max-width: 750px;
-  margin: 40px auto 0;
+  margin: 35px auto 0;
   border: 1px solid #dfc6a8;
   border-radius: 18px;
-  padding: 50px 25px;
+  padding: 45px 25px;
   background: linear-gradient(
     145deg,
     #faf2e7,
@@ -476,16 +530,16 @@ section {
 }
 
 .dresscode-iconos {
-  font-size: 43px;
-  margin-bottom: 25px;
-  letter-spacing: 15px;
+  font-size: 40px;
+  margin-bottom: 23px;
+  letter-spacing: 12px;
 }
 
 .dresscode-estilo {
   font-family: 'Playfair Display', serif;
-  font-size: 27px;
+  font-size: 26px;
   color: var(--cafe);
-  margin-bottom: 18px;
+  margin-bottom: 15px;
 }
 
 .paleta-colores {
@@ -493,14 +547,14 @@ section {
   justify-content: center;
   flex-wrap: wrap;
   gap: 15px;
-  margin: 35px auto 25px;
+  margin: 30px auto 20px;
 }
 
 .color-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 11px;
+  gap: 10px;
   width: 90px;
 }
 
@@ -518,25 +572,11 @@ section {
   font-weight: 600;
 }
 
-.color-crema {
-  background: #fff2dc;
-}
-
-.color-beige {
-  background: #e5d1b6;
-}
-
-.color-arena {
-  background: #c9a784;
-}
-
-.color-cafe {
-  background: #89664e;
-}
-
-.color-chocolate {
-  background: #493126;
-}
+.color-crema { background: #fff2dc; }
+.color-beige { background: #e5d1b6; }
+.color-arena { background: #c9a784; }
+.color-cafe { background: #89664e; }
+.color-chocolate { background: #493126; }
 
 .nota-vestimenta {
   margin-top: 25px;
@@ -545,73 +585,29 @@ section {
   line-height: 1.9;
 }
 
-/* CUENTA REGRESIVA */
-
-.cuenta {
-  background: #f0e3d3;
-}
-
-.contador {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin: 45px auto 25px;
-}
-
-.tiempo {
-  width: 112px;
-  background: #fffaf3;
-  border: 1px solid #dec6aa;
-  border-radius: 15px;
-  padding: 24px 10px;
-}
-
-.tiempo strong {
-  display: block;
-  font-family: 'Playfair Display', serif;
-  color: var(--cafe);
-  font-weight: 500;
-  font-size: 39px;
-  font-variant-numeric: tabular-nums;
-}
-
-.tiempo span {
-  display: block;
-  margin-top: 8px;
-  color: #987658;
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
 /* CONFIRMACIÓN */
 
 .confirmacion {
-  background: #fffaf3;
+  background: #f0e3d3;
 }
 
 .confirmacion .texto {
-  margin-bottom: 35px;
+  margin-bottom: 30px;
 }
 
 /* REGALOS */
 
 .regalos {
-  background: linear-gradient(
-    145deg,
-    #ead7c0,
-    #f7ecdd
-  );
+  background: var(--marfil);
 }
 
 .regalos .texto {
-  margin-bottom: 35px;
+  margin-bottom: 30px;
 }
 
 .regalo-icono {
-  font-size: 48px;
-  margin-bottom: 25px;
+  font-size: 45px;
+  margin-bottom: 23px;
 }
 
 /* FOOTER */
@@ -620,7 +616,7 @@ footer {
   background: var(--chocolate);
   color: #f4e4d1;
   text-align: center;
-  padding: 65px 20px;
+  padding: 60px 20px;
 }
 
 footer h2 {
@@ -650,11 +646,48 @@ footer p {
   transform: translateY(0);
 }
 
-/* RESPONSIVE */
+/* CELULARES */
 
 @media (max-width: 700px) {
   section {
-    padding: 70px 20px;
+    padding: 65px 20px;
+  }
+
+  .hero {
+    padding: 45px 15px;
+  }
+
+  .etiqueta {
+    font-size: 9px;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+
+  .hero h1 {
+    font-size: clamp(50px, 12vw, 75px);
+  }
+
+  .contador {
+    gap: 7px;
+  }
+
+  .tiempo {
+    width: 75px;
+    padding: 16px 4px;
+  }
+
+  .tiempo strong {
+    font-size: 27px;
+  }
+
+  .tiempo span {
+    font-size: 8px;
+    letter-spacing: .5px;
+  }
+
+  .fecha-principal {
+    font-size: 15px;
+    padding: 15px;
   }
 
   .tarjetas {
@@ -669,31 +702,8 @@ footer p {
     padding: 38px 20px;
   }
 
-  .contador {
-    gap: 9px;
-  }
-
-  .tiempo {
-    width: 76px;
-    padding: 19px 5px;
-  }
-
-  .tiempo strong {
-    font-size: 29px;
-  }
-
-  .tiempo span {
-    font-size: 9px;
-    letter-spacing: 1px;
-  }
-
-  .fecha-principal {
-    font-size: 15px;
-    padding: 17px 15px;
-  }
-
   .dresscode-marco {
-    padding: 40px 15px;
+    padding: 35px 15px;
   }
 
   .paleta-colores {
@@ -708,9 +718,20 @@ footer p {
     width: 57px;
     height: 57px;
   }
+}
 
+@media (max-height: 700px) {
   .hero {
-    padding: 65px 22px;
+    padding-top: 35px;
+    padding-bottom: 35px;
+  }
+
+  .contador-portada {
+    margin-top: 22px;
+  }
+
+  .desliza {
+    margin-top: 25px;
   }
 }
 
@@ -725,7 +746,7 @@ footer p {
 
 <body>
 
-<!-- INTRODUCCIÓN CON VIDEO -->
+<!-- VIDEO DE INTRODUCCIÓN -->
 
 <div id="intro">
 
@@ -739,9 +760,8 @@ footer p {
     Tu navegador no admite este video.
   </video>
 
-  <!-- PANTALLA SI EL NAVEGADOR BLOQUEA AUDIO -->
-
   <div id="pantallaInicio">
+
     <div style="font-size:35px;color:#f0d4af;margin-bottom:20px;">
       ♡
     </div>
@@ -749,18 +769,17 @@ footer p {
     <h2>Una dulce sorpresa...</h2>
 
     <p>
-      Hemos preparado algo muy especial para ti.
-      Activa esta hermosa experiencia
-      y acompáñanos a descubrir
-      una noticia llena de amor.
+      Tenemos algo muy especial que compartir contigo.
     </p>
 
     <button class="btn-iniciar" id="btnIniciar">
-      ▶ INICIAR INVITACIÓN CON SONIDO
+      ▶ INICIAR CON SONIDO
     </button>
+
   </div>
 
   <div class="video-controles" id="controlesVideo">
+
     <button class="control-video" id="btnAudio">
       🔊 Silenciar
     </button>
@@ -768,9 +787,8 @@ footer p {
     <button class="control-video" id="btnSaltar">
       Saltar video →
     </button>
-  </div>
 
-  <!-- PANTALLA AL TERMINAR EL VIDEO -->
+  </div>
 
   <div id="pantallaFinal">
 
@@ -781,9 +799,8 @@ footer p {
     <h2>Una dulce sorpresa...</h2>
 
     <p>
-      Hay una pequeña vida creciendo,
-      un amor inmenso que nos llena de ilusión
-      y un secreto que queremos descubrir contigo.
+      Un pequeño amor está en camino.
+      ¡Queremos compartir esta alegría contigo!
     </p>
 
     <button class="btn-entrar" id="btnEntrar">
@@ -794,11 +811,11 @@ footer p {
 
 </div>
 
-<!-- INVITACIÓN -->
+<!-- INVITACIÓN PRINCIPAL -->
 
 <main id="invitacion">
 
-  <!-- PORTADA -->
+  <!-- PORTADA CON CUENTA REGRESIVA -->
 
   <header class="hero">
 
@@ -816,12 +833,51 @@ footer p {
     <div class="linea"></div>
 
     <p class="frase">
-      ¿Será un dulce príncipe
-      o una hermosa princesa?
+      ¿Niño o niña?
       <br>
-      Muy pronto descubriremos juntos
-      la respuesta a esta hermosa sorpresa.
+      ¡Descubramos juntos esta dulce sorpresa!
     </p>
+
+    <!-- CUENTA REGRESIVA EN PORTADA -->
+
+    <div class="contador-portada">
+
+      <p class="contador-titulo">
+        Faltan para nuestro gran día
+      </p>
+
+      <div class="contador">
+
+        <div class="tiempo">
+          <strong id="dias">00</strong>
+          <span>Días</span>
+        </div>
+
+        <div class="tiempo">
+          <strong id="horas">00</strong>
+          <span>Horas</span>
+        </div>
+
+        <div class="tiempo">
+          <strong id="minutos">00</strong>
+          <span>Minutos</span>
+        </div>
+
+        <div class="tiempo">
+          <strong id="segundos">00</strong>
+          <span>Segundos</span>
+        </div>
+
+      </div>
+
+      <p
+        id="mensajeContador"
+        style="font-size:12px;color:#987658;margin-top:15px;"
+      >
+        ¡Cada día estamos más cerca!
+      </p>
+
+    </div>
 
     <div class="fecha-principal">
       31 · OCTUBRE · 2026
@@ -829,7 +885,7 @@ footer p {
 
     <div class="desliza">
       DESLIZA PARA DESCUBRIR
-      <div style="font-size:23px;margin-top:12px;">↓</div>
+      <div style="font-size:23px;margin-top:10px;">↓</div>
     </div>
 
   </header>
@@ -839,33 +895,27 @@ footer p {
   <section class="presentacion">
     <div class="contenedor revelar">
 
-      <p class="subtitulo">Con muchísimo amor</p>
+      <p class="subtitulo">Con mucho amor</p>
 
       <h2 class="titulo">
-        Una nueva historia
-        está por comenzar
+        Nuestra dulce espera
       </h2>
 
       <p class="texto">
-        Nuestro corazón está lleno de felicidad,
-        sueños e ilusión por la llegada
-        de nuestro bebé.
-        <br><br>
+        Un bebé viene en camino
+        y queremos compartir contigo
+        la emoción de descubrir
+        si será niño o niña.
       </p>
 
       <div class="frase-especial">
         ¡Te esperamos!
       </div>
 
-      <p class="texto">
-        Tu presencia hará que este día
-        sea todavía más especial.
-      </p>
-
     </div>
   </section>
 
-  <!-- FECHA HORA LUGAR -->
+  <!-- DETALLES -->
 
   <section class="detalles">
     <div class="contenedor revelar">
@@ -873,7 +923,7 @@ footer p {
       <p class="subtitulo">Reserva esta fecha</p>
 
       <h2 class="titulo">
-        Detalles de nuestro gran día
+        Nuestro gran día
       </h2>
 
       <div class="tarjetas">
@@ -894,8 +944,6 @@ footer p {
           <div class="icono">🕒</div>
           <h3>Hora</h3>
           <p>
-            Te esperamos desde las
-            <br>
             <strong>3:00 p. m.</strong>
             <br>
             ¡Sé puntual!
@@ -935,25 +983,28 @@ footer p {
   <section class="dresscode">
     <div class="contenedor revelar">
 
-      <p class="subtitulo">Para un día inolvidable</p>
+      <p class="subtitulo">
+        Para un día especial
+      </p>
 
       <h2 class="titulo">
         Código de vestimenta
       </h2>
 
+      <p class="texto">
+        Acompáñanos luciendo nuestros
+        tonos favoritos.
+      </p>
+
       <div class="dresscode-marco">
 
         <div class="dresscode-iconos">
-      
+          👗 ♡ 🤵
         </div>
 
         <h3 class="dresscode-estilo">
+          Elegante en tonos tierra
         </h3>
-
-        <p class="texto">
-          Te invitamos a lucir un atuendo
-          en los tonos crema, de nuestra paleta de colores.
-        </p>
 
         <div class="paleta-colores">
 
@@ -985,71 +1036,23 @@ footer p {
         </div>
 
         <p class="nota-vestimenta">
-          ♡ Damas: vestidos o vestimenta sport-elegante.
+          ♡ Damas: vestidos o conjuntos elegantes.
           <br>
-          ♡ Caballeros: camisa, pantalón de vestir
-          o vestimenta sport-elegante.
-          <br><br>
+          ♡ Caballeros: camisa y pantalón de vestir.
+        </p>
 
       </div>
 
     </div>
   </section>
 
-  <!-- CUENTA REGRESIVA -->
-
-  <section class="cuenta">
-    <div class="contenedor revelar">
-
-      <p class="subtitulo">Cada día falta menos</p>
-
-      <h2 class="titulo">
-        La cuenta regresiva comenzó
-      </h2>
-
-      <p class="texto">
-        Contamos los días, las horas y los minutos
-        para descubrir nuestra dulce sorpresa.
-      </p>
-
-      <div class="contador">
-
-        <div class="tiempo">
-          <strong id="dias">00</strong>
-          <span>Días</span>
-        </div>
-
-        <div class="tiempo">
-          <strong id="horas">00</strong>
-          <span>Horas</span>
-        </div>
-
-        <div class="tiempo">
-          <strong id="minutos">00</strong>
-          <span>Minutos</span>
-        </div>
-
-        <div class="tiempo">
-          <strong id="segundos">00</strong>
-          <span>Segundos</span>
-        </div>
-
-      </div>
-
-      <p class="texto" id="mensajeContador">
-        ¡La emoción crece cada segundo!
-      </p>
-
-    </div>
-  </section>
-
-  <!-- CONFIRMAR ASISTENCIA -->
+  <!-- CONFIRMACIÓN -->
 
   <section class="confirmacion">
     <div class="contenedor revelar">
 
       <p class="subtitulo">
-        Queremos compartirlo contigo
+        Nos encantará verte
       </p>
 
       <h2 class="titulo">
@@ -1057,19 +1060,19 @@ footer p {
       </h2>
 
       <p class="texto">
-        <br><br>
-        Por favor, confírmanos si podrás
-        acompañarnos para preparar
-        cada detalle con mucho cariño.
+        Tu presencia hará este día
+        aún más especial.
+        <br>
+        ¡Confírmanos si nos acompañarás!
       </p>
 
       <a
         class="boton"
-        href="https://wa.me/51924547592?text=Hola%20%F0%9F%A4%8E%20Con%20mucho%20cari%C3%B1o%20quiero%20confirmar%20mi%20asistencia%20a%20su%20Gender%20Reveal%20del%2031%20de%20octubre.%20%F0%9F%A5%B9%F0%9F%92%95%20Me%20hace%20muy%20feliz%20acompa%C3%B1arlos%20en%20este%20momento%20tan%20especial.%20%C2%A1Nos%20vemos%20pronto!"
+        href="https://wa.me/51924547592?text=Hola%20%F0%9F%A4%8E%20Confirmo%20con%20mucho%20cari%C3%B1o%20mi%20asistencia%20a%20su%20Gender%20Reveal%20del%2031%20de%20octubre.%20%C2%A1Qu%C3%A9%20emoci%C3%B3n%20compartir%20este%20d%C3%ADa%20con%20ustedes!%20%F0%9F%92%95"
         target="_blank"
         rel="noopener noreferrer"
       >
-        ♡ CONFIRMAR ASISTENCIA
+        ♡ CONFIRMAR POR WHATSAPP
       </a>
 
     </div>
@@ -1083,7 +1086,7 @@ footer p {
       <div class="regalo-icono">🎁</div>
 
       <p class="subtitulo">
-        Un detalle lleno de amor
+        Un detalle con amor
       </p>
 
       <h2 class="titulo">
@@ -1091,14 +1094,10 @@ footer p {
       </h2>
 
       <p class="texto">
-        El regalo más bonito será compartir
-        este momento contigo.
-        <br><br>
-        Pero si deseas tener un detalle
-        especial para nuestro bebé,
-        hemos preparado una pequeña lista
-        de opciones elegidas con mucho amor.
-        <br><br>
+        Tu compañía es nuestro mejor regalo.
+        <br>
+        Si deseas tener un detalle para el bebé,
+        aquí encontrarás algunas ideas.
       </p>
 
       <a
@@ -1120,11 +1119,8 @@ footer p {
     <h2>Con todo nuestro amor</h2>
 
     <p>
-      UNA PEQUEÑA VIDA,
+      UN PEQUEÑO BEBÉ,
       UNA INMENSA FELICIDAD.
-      <br>
-      GRACIAS POR ACOMPAÑARNOS
-      EN ESTA HERMOSA AVENTURA.
     </p>
 
     <div style="font-size:30px;color:#d9b991;margin:25px 0;">
@@ -1140,7 +1136,7 @@ footer p {
 
 <script>
 
-/* VIDEO DE INTRODUCCIÓN */
+/* VIDEO INTRODUCTORIO */
 
 const video = document.getElementById("videoPortada");
 const intro = document.getElementById("intro");
@@ -1170,13 +1166,11 @@ function mostrarEntrada() {
 
 video.addEventListener("ended", mostrarEntrada);
 
-video.addEventListener("error", function() {
-  mostrarEntrada();
-});
+video.addEventListener("error", mostrarEntrada);
 
 btnSaltar.addEventListener("click", mostrarEntrada);
 
-/* INTENTAR REPRODUCIR CON SONIDO */
+/* AUTOPLAY CON SONIDO */
 
 async function iniciarAutomaticamente() {
   try {
@@ -1185,29 +1179,21 @@ async function iniciarAutomaticamente() {
     video.currentTime = 0;
 
     await video.play();
-
     btnAudio.textContent = "🔊 Silenciar";
 
   } catch (error) {
-    // El navegador no permite autoplay con sonido.
-    // Intentamos reproducir sin sonido.
-
     try {
       video.muted = true;
       await video.play();
-
       btnAudio.textContent = "🔇 Activar sonido";
 
     } catch (segundoError) {
-      // También se bloqueó el autoplay silencioso.
-      // Mostramos el botón de inicio.
-
       pantallaInicio.classList.add("visible");
     }
   }
 }
 
-/* INICIAR VIDEO CON AUDIO TRAS UN CLIC */
+/* INICIAR CON SONIDO */
 
 btnIniciar.addEventListener("click", async function() {
   pantallaInicio.classList.remove("visible");
@@ -1225,7 +1211,7 @@ btnIniciar.addEventListener("click", async function() {
   }
 });
 
-/* ACTIVAR O DESACTIVAR SONIDO */
+/* CONTROL DE AUDIO */
 
 btnAudio.addEventListener("click", function() {
   video.muted = !video.muted;
@@ -1239,7 +1225,7 @@ btnAudio.addEventListener("click", function() {
   }
 });
 
-/* ENTRAR A LA INVITACIÓN */
+/* ENTRAR A INVITACIÓN */
 
 btnEntrar.addEventListener("click", function() {
   intro.classList.add("oculto");
@@ -1253,8 +1239,6 @@ btnEntrar.addEventListener("click", function() {
     observarSecciones();
   }, 1100);
 });
-
-/* REPRODUCIR AL ABRIR LA PÁGINA */
 
 iniciarAutomaticamente();
 
@@ -1280,7 +1264,7 @@ function actualizarContador() {
     elementoSegundos.textContent = "00";
 
     mensajeContador.textContent =
-      "¡Llegó el gran día de nuestra dulce sorpresa!";
+      "¡Llegó nuestro gran día!";
 
     clearInterval(intervaloContador);
     return;
@@ -1322,7 +1306,7 @@ const intervaloContador = setInterval(
 
 actualizarContador();
 
-/* ANIMACIONES AL DESLIZAR */
+/* ANIMACIONES */
 
 function observarSecciones() {
   const elementos = document.querySelectorAll(".revelar");
