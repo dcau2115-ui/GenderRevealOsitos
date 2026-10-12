@@ -510,7 +510,7 @@ section {
   margin-top: 35px;
 }
 
-/* DRESS CODE */
+/* DRESS CODE - SPORT ELEGANTE */
 
 .dresscode {
   background: #fffaf3;
@@ -529,17 +529,20 @@ section {
   );
 }
 
-.dresscode-iconos {
-  font-size: 40px;
-  margin-bottom: 23px;
-  letter-spacing: 12px;
-}
-
 .dresscode-estilo {
   font-family: 'Playfair Display', serif;
-  font-size: 26px;
+  font-size: clamp(25px, 5vw, 32px);
   color: var(--cafe);
   margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.dresscode-descripcion {
+  color: #806956;
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 0 auto 10px;
+  max-width: 490px;
 }
 
 .paleta-colores {
@@ -610,27 +613,42 @@ section {
   margin-bottom: 23px;
 }
 
-/* FOOTER */
+/* FOOTER CON NOMBRES DE LOS PAPÁS */
 
 footer {
   background: var(--chocolate);
   color: #f4e4d1;
   text-align: center;
-  padding: 60px 20px;
+  padding: 65px 20px;
+}
+
+footer .footer-intro {
+  color: #e9cda9;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
 }
 
 footer h2 {
   font-family: 'Great Vibes', cursive;
-  font-size: 53px;
+  font-size: clamp(54px, 9vw, 78px);
   font-weight: 400;
   color: #e9cda9;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
+  line-height: 1.3;
 }
 
 footer p {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 2;
-  letter-spacing: 1px;
+  letter-spacing: .3px;
+}
+
+footer .footer-corazon {
+  font-size: 32px;
+  color: #d9b991;
+  margin-top: 25px;
 }
 
 /* ANIMACIONES */
@@ -773,7 +791,7 @@ footer p {
     </p>
 
     <button class="btn-iniciar" id="btnIniciar">
-      ▶ INICIAR CON SONIDO
+      INICIAR CON SONIDO
     </button>
 
   </div>
@@ -781,7 +799,7 @@ footer p {
   <div class="video-controles" id="controlesVideo">
 
     <button class="control-video" id="btnAudio">
-      🔊 Silenciar
+      Activar / silenciar sonido
     </button>
 
     <button class="control-video" id="btnSaltar">
@@ -838,7 +856,7 @@ footer p {
       ¡Descubramos juntos esta dulce sorpresa!
     </p>
 
-    <!-- CUENTA REGRESIVA EN PORTADA -->
+    <!-- CUENTA REGRESIVA -->
 
     <div class="contador-portada">
 
@@ -971,7 +989,7 @@ footer p {
           target="_blank"
           rel="noopener noreferrer"
         >
-          📍 VER UBICACIÓN
+          VER UBICACIÓN
         </a>
       </div>
 
@@ -992,19 +1010,20 @@ footer p {
       </h2>
 
       <p class="texto">
-        Acompáñanos luciendo nuestros
-        tonos favoritos.
+        Acompáñanos con un estilo cómodo y elegante,
+        en nuestra paleta de tonos tierra.
       </p>
 
       <div class="dresscode-marco">
 
-        <div class="dresscode-iconos">
-          👗 ♡ 🤵
-        </div>
-
         <h3 class="dresscode-estilo">
-          Elegante en tonos tierra
+          Sport elegante / Casual elegante
         </h3>
+
+        <p class="dresscode-descripcion">
+          Un estilo fresco, cómodo y con un toque
+          de elegancia para celebrar juntos.
+        </p>
 
         <div class="paleta-colores">
 
@@ -1036,9 +1055,10 @@ footer p {
         </div>
 
         <p class="nota-vestimenta">
-          ♡ Damas: vestidos o conjuntos elegantes.
+          Damas: vestidos frescos o conjuntos casuales elegantes.
           <br>
-          ♡ Caballeros: camisa y pantalón de vestir.
+          Caballeros: camisa o polo tipo cuello,
+          pantalón chino o de vestir.
         </p>
 
       </div>
@@ -1072,7 +1092,7 @@ footer p {
         target="_blank"
         rel="noopener noreferrer"
       >
-        ♡ CONFIRMAR POR WHATSAPP
+        CONFIRMAR POR WHATSAPP
       </a>
 
     </div>
@@ -1083,7 +1103,7 @@ footer p {
   <section class="regalos">
     <div class="contenedor revelar">
 
-      <div class="regalo-icono">🎁</div>
+      <div class="regalo-icono">♡</div>
 
       <p class="subtitulo">
         Un detalle con amor
@@ -1106,29 +1126,32 @@ footer p {
         target="_blank"
         rel="noopener noreferrer"
       >
-        🎁 VER OPCIONES DE REGALO
+        VER OPCIONES DE REGALO
       </a>
 
     </div>
   </section>
 
-  <!-- DESPEDIDA -->
+  <!-- DESPEDIDA ACTUALIZADA -->
 
   <footer>
 
-    <h2>Con todo nuestro amor</h2>
-
-    <p>
-      UN PEQUEÑO BEBÉ,
-      UNA INMENSA FELICIDAD.
+    <p class="footer-intro">
+      Con todo nuestro amor
     </p>
 
-    <div style="font-size:30px;color:#d9b991;margin:25px 0;">
+    <h2>Alexandra &amp; David</h2>
+
+    <p>
+      Nuestro mayor regalo está en camino.
+      <br>
+      ¡Gracias por acompañarnos a descubrir
+      esta dulce sorpresa!
+    </p>
+
+    <div class="footer-corazon">
       ♡
     </div>
-
-    <p>31 DE OCTUBRE DE 2026</p>
-    <p>CASA DE CAMPO VILLA MIA</p>
 
   </footer>
 
@@ -1165,9 +1188,7 @@ function mostrarEntrada() {
 }
 
 video.addEventListener("ended", mostrarEntrada);
-
 video.addEventListener("error", mostrarEntrada);
-
 btnSaltar.addEventListener("click", mostrarEntrada);
 
 /* AUTOPLAY CON SONIDO */
@@ -1179,13 +1200,13 @@ async function iniciarAutomaticamente() {
     video.currentTime = 0;
 
     await video.play();
-    btnAudio.textContent = "🔊 Silenciar";
+    btnAudio.textContent = "Silenciar sonido";
 
   } catch (error) {
     try {
       video.muted = true;
       await video.play();
-      btnAudio.textContent = "🔇 Activar sonido";
+      btnAudio.textContent = "Activar sonido";
 
     } catch (segundoError) {
       pantallaInicio.classList.add("visible");
@@ -1205,7 +1226,7 @@ btnIniciar.addEventListener("click", async function() {
 
   try {
     await video.play();
-    btnAudio.textContent = "🔊 Silenciar";
+    btnAudio.textContent = "Silenciar sonido";
   } catch (error) {
     pantallaInicio.classList.add("visible");
   }
@@ -1217,8 +1238,8 @@ btnAudio.addEventListener("click", function() {
   video.muted = !video.muted;
 
   btnAudio.textContent = video.muted
-    ? "🔇 Activar sonido"
-    : "🔊 Silenciar";
+    ? "Activar sonido"
+    : "Silenciar sonido";
 
   if (video.paused && !video.ended) {
     video.play().catch(function() {});
