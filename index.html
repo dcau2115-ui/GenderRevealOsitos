@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf5ec">
+<meta name="description" content="Gender Reveal de Alexandra y David. 31 de octubre de 2026.">
 
 <title>Gender Reveal | Alexandra & David</title>
 
@@ -49,9 +50,9 @@ button {
   cursor:pointer;
 }
 
-/* =========================
-   ARCOÍRIS DECORATIVOS
-========================= */
+/* ==================================
+   ARCOÍRIS EN TONOS TIERRA
+================================== */
 
 .arcoiris {
   width:210px;
@@ -131,9 +132,99 @@ button {
   transform:rotate(25deg) scale(1.3);
 }
 
-/* =========================
-   INTRODUCCIÓN CON VIDEO
-========================= */
+/* ==================================
+   NUBES BLANCAS SUAVES
+================================== */
+
+.nube {
+  position:absolute;
+  width:165px;
+  height:52px;
+  background:rgba(255,255,255,.78);
+  border-radius:100px;
+  filter:drop-shadow(0 9px 16px rgba(143,117,90,.08));
+  pointer-events:none;
+  z-index:0;
+  animation:flotarNube 8s ease-in-out infinite;
+}
+
+.nube::before,
+.nube::after {
+  content:"";
+  position:absolute;
+  background:inherit;
+  border-radius:50%;
+}
+
+.nube::before {
+  width:88px;
+  height:88px;
+  left:24px;
+  bottom:14px;
+}
+
+.nube::after {
+  width:72px;
+  height:72px;
+  right:20px;
+  bottom:9px;
+}
+
+.nube.nube1 {
+  top:12%;
+  left:6%;
+  transform:scale(.8);
+  animation-delay:0s;
+}
+
+.nube.nube2 {
+  top:24%;
+  right:5%;
+  transform:scale(.65);
+  animation-delay:-2s;
+}
+
+.nube.nube3 {
+  bottom:14%;
+  left:7%;
+  transform:scale(.6);
+  animation-delay:-4s;
+}
+
+.nube.nube4 {
+  bottom:9%;
+  right:8%;
+  transform:scale(.75);
+  animation-delay:-1s;
+}
+
+.nube.nube-seccion {
+  opacity:.55;
+  transform:scale(.65);
+}
+
+.nube.nube-seccion.izq {
+  left:-55px;
+  top:20%;
+}
+
+.nube.nube-seccion.der {
+  right:-55px;
+  bottom:12%;
+}
+
+@keyframes flotarNube {
+  0%,100% {
+    translate:0 0;
+  }
+  50% {
+    translate:15px -10px;
+  }
+}
+
+/* ==================================
+   VIDEO INTRODUCTORIO
+================================== */
 
 #intro {
   position:fixed;
@@ -240,9 +331,9 @@ button {
   padding:12px 18px;
 }
 
-/* =========================
+/* ==================================
    INVITACIÓN
-========================= */
+================================== */
 
 #invitacion {
   display:none;
@@ -252,9 +343,9 @@ button {
   display:block;
 }
 
-/* =========================
-   PORTADA PRINCIPAL
-========================= */
+/* ==================================
+   PORTADA
+================================== */
 
 .hero {
   min-height:100svh;
@@ -266,6 +357,7 @@ button {
   text-align:center;
   position:relative;
   overflow:hidden;
+  isolation:isolate;
   background:radial-gradient(
     ellipse at center,
     #fffaf2 0%,
@@ -274,7 +366,7 @@ button {
   );
 }
 
-.hero > *:not(.decorativo) {
+.hero > *:not(.decorativo):not(.nube) {
   position:relative;
   z-index:1;
 }
@@ -286,12 +378,6 @@ button {
   text-transform:uppercase;
   color:var(--dorado);
   font-weight:700;
-}
-
-.ornamento {
-  font-size:27px;
-  color:var(--dorado);
-  margin:18px 0;
 }
 
 .hero h1 {
@@ -327,9 +413,9 @@ button {
   max-width:500px;
 }
 
-/* =========================
+/* ==================================
    CUENTA REGRESIVA
-========================= */
+================================== */
 
 .contador-portada {
   margin-top:30px;
@@ -353,7 +439,7 @@ button {
 .tiempo {
   width:105px;
   padding:18px 7px;
-  background:#fffaf3aa;
+  background:#fffaf3bb;
   border:1px solid #c8ad8a77;
   border-radius:14px;
 }
@@ -394,15 +480,16 @@ button {
   color:var(--dorado);
 }
 
-/* =========================
+/* ==================================
    SECCIONES
-========================= */
+================================== */
 
 section {
   padding:85px 20px;
   text-align:center;
   position:relative;
   overflow:hidden;
+  isolation:isolate;
 }
 
 .contenedor {
@@ -441,10 +528,6 @@ section {
   margin:30px 0 0;
 }
 
-/* =========================
-   DETALLES DEL EVENTO
-========================= */
-
 .detalles,
 .confirmacion {
   background:#f0e3d3;
@@ -482,10 +565,6 @@ section {
   color:#795f4b;
 }
 
-/* =========================
-   BOTONES
-========================= */
-
 .boton {
   display:inline-flex;
   justify-content:center;
@@ -508,9 +587,9 @@ section {
   transform:translateY(-3px);
 }
 
-/* =========================
+/* ==================================
    CÓDIGO DE VESTIMENTA
-========================= */
+================================== */
 
 .dresscode {
   background:var(--marfil);
@@ -537,14 +616,12 @@ section {
   margin-bottom:15px;
 }
 
-/* CÍRCULOS SIN TEXTO DEBAJO */
-
 .paleta-colores {
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
   gap:14px;
-  margin:30px auto;
+  margin:30px auto 0;
 }
 
 .circulo-color {
@@ -560,23 +637,12 @@ section {
   transform:scale(1.12);
 }
 
-.nota-vestimenta {
-  font-size:13px;
-  line-height:1.9;
-  color:#806956;
-}
-
-/* =========================
+/* ==================================
    LLUVIA DE REGALITOS
-========================= */
+================================== */
 
 .regalos {
   background:var(--marfil);
-}
-
-.regalo-icono {
-  font-size:45px;
-  color:var(--dorado);
 }
 
 .lista-regalos {
@@ -613,9 +679,9 @@ section {
   color:#493126;
 }
 
-/* =========================
+/* ==================================
    DESPEDIDA
-========================= */
+================================== */
 
 footer {
   background:var(--chocolate);
@@ -649,9 +715,9 @@ footer p {
   margin-top:25px;
 }
 
-/* =========================
-   BOTÓN FLOTANTE DE MÚSICA
-========================= */
+/* ==================================
+   BOTÓN DE MÚSICA
+================================== */
 
 #btnMusica {
   display:none;
@@ -688,9 +754,9 @@ footer p {
   }
 }
 
-/* =========================
+/* ==================================
    ANIMACIONES
-========================= */
+================================== */
 
 .revelar {
   opacity:0;
@@ -703,9 +769,9 @@ footer p {
   transform:translateY(0);
 }
 
-/* =========================
-   DISEÑO RESPONSIVE
-========================= */
+/* ==================================
+   CELULARES
+================================== */
 
 @media(max-width:700px) {
   section {
@@ -768,6 +834,26 @@ footer p {
   .arcoiris.decorativo {
     opacity:.13;
   }
+
+  .nube {
+    opacity:.55;
+  }
+
+  .nube.nube1 {
+    left:-50px;
+  }
+
+  .nube.nube2 {
+    right:-55px;
+  }
+
+  .nube.nube3 {
+    left:-65px;
+  }
+
+  .nube.nube4 {
+    right:-65px;
+  }
 }
 
 @media(prefers-reduced-motion:reduce) {
@@ -783,9 +869,9 @@ footer p {
 
 <body>
 
-<!-- =========================
-     VIDEO INTRODUCTORIO
-========================= -->
+<!-- ==================================
+     VIDEO DE INTRODUCCIÓN
+================================== -->
 
 <div id="intro">
 
@@ -842,9 +928,9 @@ footer p {
 
 </div>
 
-<!-- =========================
-     MÚSICA DE FONDO
-========================= -->
+<!-- ==================================
+     CANCIÓN DE FONDO
+================================== -->
 
 <audio id="musicaFondo" preload="auto" loop>
   <source src="musica.mp3" type="audio/mpeg">
@@ -859,9 +945,9 @@ footer p {
   ♫
 </button>
 
-<!-- =========================
+<!-- ==================================
      INVITACIÓN PRINCIPAL
-========================= -->
+================================== -->
 
 <main id="invitacion">
 
@@ -869,7 +955,14 @@ footer p {
 
   <header class="hero">
 
-    <!-- ARCOÍRIS DECORATIVOS LATERALES -->
+    <!-- NUBES DECORATIVAS -->
+
+    <div class="nube nube1" aria-hidden="true"></div>
+    <div class="nube nube2" aria-hidden="true"></div>
+    <div class="nube nube3" aria-hidden="true"></div>
+    <div class="nube nube4" aria-hidden="true"></div>
+
+    <!-- ARCOÍRIS LATERALES -->
 
     <div class="arcoiris decorativo izquierda" aria-hidden="true">
       <div class="arco arco1"></div>
@@ -966,9 +1059,14 @@ footer p {
 
   </header>
 
-  <!-- MENSAJE -->
+  <!-- ==================================
+       MENSAJE
+  ================================== -->
 
   <section class="presentacion">
+
+    <div class="nube nube-seccion izq" aria-hidden="true"></div>
+    <div class="nube nube-seccion der" aria-hidden="true"></div>
 
     <div class="contenedor revelar">
 
@@ -1001,9 +1099,14 @@ footer p {
 
   </section>
 
-  <!-- DETALLES DEL EVENTO -->
+  <!-- ==================================
+       DETALLES
+  ================================== -->
 
   <section class="detalles">
+
+    <div class="nube nube-seccion izq" aria-hidden="true"></div>
+    <div class="nube nube-seccion der" aria-hidden="true"></div>
 
     <div class="contenedor revelar">
 
@@ -1066,11 +1169,14 @@ footer p {
 
   </section>
 
-  <!-- =========================
+  <!-- ==================================
        CÓDIGO DE VESTIMENTA
-  ========================= -->
+  ================================== -->
 
   <section class="dresscode">
+
+    <div class="nube nube-seccion izq" aria-hidden="true"></div>
+    <div class="nube nube-seccion der" aria-hidden="true"></div>
 
     <div class="contenedor revelar">
 
@@ -1097,7 +1203,7 @@ footer p {
           Un estilo fresco, cómodo y con un toque de elegancia.
         </p>
 
-        <!-- 7 TONOS, SIN NOMBRES -->
+        <!-- PALETA DE 7 COLORES SIN NOMBRES -->
 
         <div class="paleta-colores">
 
@@ -1131,58 +1237,21 @@ footer p {
 
         </div>
 
-        <p class="nota-vestimenta">
-          Damas: vestidos frescos o conjuntos elegantes.
-          <br>
-          Caballeros: camisa o polo con cuello,
-          pantalón chino o de vestir.
-        </p>
-
       </div>
 
     </div>
 
   </section>
 
-  <!-- CONFIRMACIÓN -->
-
-  <section class="confirmacion">
-
-    <div class="contenedor revelar">
-
-      <p class="subtitulo">
-        Nos encantará verte
-      </p>
-
-      <h2 class="titulo">
-        Confirma tu asistencia
-      </h2>
-
-      <p class="texto">
-        Tu presencia hará este día aún más especial.
-        <br>
-        ¡Confírmanos si nos acompañarás!
-      </p>
-
-      <a
-        class="boton"
-        id="enlaceWhatsApp"
-        href="https://wa.me/51924547592"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        CONFIRMAR POR WHATSAPP
-      </a>
-
-    </div>
-
-  </section>
-
-  <!-- =========================
+  <!-- ==================================
        LLUVIA DE REGALITOS
-  ========================= -->
+       AHORA VA ANTES DE CONFIRMACIÓN
+  ================================== -->
 
   <section class="regalos">
+
+    <div class="nube nube-seccion izq" aria-hidden="true"></div>
+    <div class="nube nube-seccion der" aria-hidden="true"></div>
 
     <div class="contenedor revelar">
 
@@ -1208,8 +1277,6 @@ footer p {
         Si deseas tener un detalle para nuestro bebé,
         aquí te dejamos algunas ideas.
       </p>
-
-      <!-- LISTA DE REGALOS -->
 
       <div class="lista-regalos">
 
@@ -1245,7 +1312,49 @@ footer p {
 
   </section>
 
-  <!-- DESPEDIDA -->
+  <!-- ==================================
+       CONFIRMACIÓN DE ASISTENCIA
+       AHORA VA DESPUÉS DE REGALITOS
+  ================================== -->
+
+  <section class="confirmacion">
+
+    <div class="nube nube-seccion izq" aria-hidden="true"></div>
+    <div class="nube nube-seccion der" aria-hidden="true"></div>
+
+    <div class="contenedor revelar">
+
+      <p class="subtitulo">
+        Nos encantará verte
+      </p>
+
+      <h2 class="titulo">
+        Confirma tu asistencia
+      </h2>
+
+      <p class="texto">
+        Tu presencia hará este día aún más especial.
+        <br>
+        ¡Confírmanos si nos acompañarás!
+      </p>
+
+      <a
+        class="boton"
+        id="enlaceWhatsApp"
+        href="https://wa.me/51924547592"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        CONFIRMAR POR WHATSAPP
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- ==================================
+       DESPEDIDA
+  ================================== -->
 
   <footer>
 
@@ -1282,32 +1391,50 @@ footer p {
 
 <script>
 
-/* =========================
-   ELEMENTOS
-========================= */
+/* ==================================
+   ELEMENTOS PRINCIPALES
+================================== */
 
 const video = document.getElementById("videoPortada");
 const intro = document.getElementById("intro");
-const pantallaInicio = document.getElementById("pantallaInicio");
-const pantallaFinal = document.getElementById("pantallaFinal");
-const controlesVideo = document.getElementById("controlesVideo");
 
-const btnIniciar = document.getElementById("btnIniciar");
-const btnAudio = document.getElementById("btnAudio");
-const btnSaltar = document.getElementById("btnSaltar");
-const btnEntrar = document.getElementById("btnEntrar");
+const pantallaInicio =
+  document.getElementById("pantallaInicio");
 
-const invitacion = document.getElementById("invitacion");
-const musica = document.getElementById("musicaFondo");
-const btnMusica = document.getElementById("btnMusica");
+const pantallaFinal =
+  document.getElementById("pantallaFinal");
+
+const controlesVideo =
+  document.getElementById("controlesVideo");
+
+const btnIniciar =
+  document.getElementById("btnIniciar");
+
+const btnAudio =
+  document.getElementById("btnAudio");
+
+const btnSaltar =
+  document.getElementById("btnSaltar");
+
+const btnEntrar =
+  document.getElementById("btnEntrar");
+
+const invitacion =
+  document.getElementById("invitacion");
+
+const musica =
+  document.getElementById("musicaFondo");
+
+const btnMusica =
+  document.getElementById("btnMusica");
 
 document.body.style.overflowY = "hidden";
 
 let introduccionTerminada = false;
 
-/* =========================
+/* ==================================
    FINALIZAR VIDEO
-========================= */
+================================== */
 
 function mostrarEntrada() {
 
@@ -1329,9 +1456,9 @@ video.addEventListener("error", mostrarEntrada);
 
 btnSaltar.addEventListener("click", mostrarEntrada);
 
-/* =========================
-   INICIAR VIDEO
-========================= */
+/* ==================================
+   REPRODUCCIÓN DEL VIDEO
+================================== */
 
 async function iniciarVideo() {
 
@@ -1375,6 +1502,7 @@ btnIniciar.addEventListener("click", async () => {
     await video.play();
 
     pantallaInicio.classList.remove("visible");
+
     btnAudio.textContent = "Silenciar sonido";
 
   } catch (error) {
@@ -1395,9 +1523,9 @@ btnAudio.addEventListener("click", () => {
 
 });
 
-/* =========================
+/* ==================================
    MÚSICA DE FONDO
-========================= */
+================================== */
 
 musica.volume = 0.65;
 musica.loop = true;
@@ -1451,9 +1579,9 @@ btnMusica.addEventListener("click", async () => {
 
 });
 
-/* =========================
+/* ==================================
    ENTRAR A INVITACIÓN
-========================= */
+================================== */
 
 btnEntrar.addEventListener("click", () => {
 
@@ -1492,9 +1620,9 @@ btnEntrar.addEventListener("click", () => {
 
 iniciarVideo();
 
-/* =========================
+/* ==================================
    CUENTA REGRESIVA
-========================= */
+================================== */
 
 const fechaEvento = new Date(
   "2026-10-31T15:00:00-05:00"
@@ -1545,9 +1673,9 @@ actualizarContador();
 
 setInterval(actualizarContador,1000);
 
-/* =========================
-   CONFIRMACIÓN WHATSAPP
-========================= */
+/* ==================================
+   CONFIRMACIÓN POR WHATSAPP
+================================== */
 
 const mensajeWhatsApp =
   "Hola 🤎 Confirmo con mucho cariño mi asistencia " +
@@ -1558,13 +1686,14 @@ document.getElementById("enlaceWhatsApp").href =
   "https://wa.me/51924547592?text=" +
   encodeURIComponent(mensajeWhatsApp);
 
-/* =========================
+/* ==================================
    ANIMACIONES AL DESLIZAR
-========================= */
+================================== */
 
 function observarSecciones() {
 
-  const elementos = document.querySelectorAll(".revelar");
+  const elementos =
+    document.querySelectorAll(".revelar");
 
   if (!("IntersectionObserver" in window)) {
 
