@@ -264,12 +264,12 @@ button {
 }
 
 #pantallaInicio {
-  display:none;
+  display:flex;
   z-index:5;
 }
 
-#pantallaInicio.visible {
-  display:flex;
+#pantallaInicio.oculto {
+  display:none;
 }
 
 #pantallaFinal {
@@ -317,10 +317,14 @@ button {
   left:0;
   right:0;
   z-index:3;
-  display:flex;
+  display:none;
   justify-content:center;
   gap:10px;
   padding:0 15px;
+}
+
+.video-controles.visible {
+  display:flex;
 }
 
 .control-video {
@@ -481,7 +485,7 @@ button {
 }
 
 /* ==================================
-   SECCIONES
+   SECCIONES CON COLORES INTERCALADOS
 ================================== */
 
 section {
@@ -516,7 +520,28 @@ section {
   color:#806956;
 }
 
+/* 1. CREMA */
 .presentacion {
+  background:var(--marfil);
+}
+
+/* 2. BEIGE */
+.detalles {
+  background:#f0e3d3;
+}
+
+/* 3. CREMA */
+.dresscode {
+  background:var(--marfil);
+}
+
+/* 4. BEIGE */
+.regalos {
+  background:#f0e3d3;
+}
+
+/* 5. CREMA */
+.confirmacion {
   background:var(--marfil);
 }
 
@@ -526,15 +551,6 @@ section {
   font-weight:400;
   color:var(--dorado);
   margin:30px 0 0;
-}
-
-.detalles {
-  background:#f0e3d3;
-}
-
-/* CONFIRMACIÓN: FONDO BEIGE DIFERENCIADO */
-.confirmacion {
-  background:#e9d8c2;
 }
 
 .tarjetas {
@@ -595,10 +611,6 @@ section {
    CÓDIGO DE VESTIMENTA
 ================================== */
 
-.dresscode {
-  background:var(--marfil);
-}
-
 .dresscode-marco {
   max-width:750px;
   margin:35px auto 0;
@@ -645,11 +657,6 @@ section {
    LLUVIA DE REGALITOS
 ================================== */
 
-/* REGALOS: FONDO CREMA CLARO */
-.regalos {
-  background:#fffaf3;
-}
-
 .lista-regalos {
   max-width:610px;
   margin:35px auto 0;
@@ -685,7 +692,7 @@ section {
 }
 
 /* ==================================
-   DESPEDIDA
+   DESPEDIDA CON FONDO MARRÓN
 ================================== */
 
 footer {
@@ -859,6 +866,16 @@ footer p {
   .nube.nube4 {
     right:-65px;
   }
+
+  #videoPortada {
+    width:100%;
+    height:100%;
+    object-fit:contain;
+  }
+
+  .video-controles {
+    bottom:calc(20px + env(safe-area-inset-bottom));
+  }
 }
 
 @media(prefers-reduced-motion:reduce) {
@@ -875,16 +892,17 @@ footer p {
 <body>
 
 <!-- ==================================
-     VIDEO DE INTRODUCCIÓN
+     VIDEO INTRODUCTORIO
+     INICIA SOLO AL PULSAR EL BOTÓN
 ================================== -->
 
 <div id="intro">
 
   <video
     id="videoPortada"
-    autoplay
     playsinline
-    preload="auto"
+    webkit-playsinline
+    preload="metadata"
   >
     <source src="portada.mp4" type="video/mp4">
     Tu navegador no admite video.
@@ -898,19 +916,19 @@ footer p {
       Tenemos algo muy especial que compartir contigo.
     </p>
 
-    <button class="btn-intro" id="btnIniciar">
-      CLICK PARA INICIAR
+    <button class="btn-intro" id="btnIniciar" type="button">
+      INICIAR CON SONIDO
     </button>
 
   </div>
 
   <div class="video-controles" id="controlesVideo">
 
-    <button class="control-video" id="btnAudio">
-      Activar / silenciar sonido
+    <button class="control-video" id="btnAudio" type="button">
+      Silenciar sonido
     </button>
 
-    <button class="control-video" id="btnSaltar">
+    <button class="control-video" id="btnSaltar" type="button">
       Saltar video →
     </button>
 
@@ -925,8 +943,8 @@ footer p {
       ¡Queremos compartir esta alegría contigo!
     </p>
 
-    <button class="btn-intro" id="btnEntrar">
-      DESCUBRE NUESTRA INVITACIÓN ♡
+    <button class="btn-intro" id="btnEntrar" type="button">
+      DESCUBRIR NUESTRA INVITACIÓN ♡
     </button>
 
   </div>
@@ -960,14 +978,10 @@ footer p {
 
   <header class="hero">
 
-    <!-- NUBES DECORATIVAS -->
-
     <div class="nube nube1" aria-hidden="true"></div>
     <div class="nube nube2" aria-hidden="true"></div>
     <div class="nube nube3" aria-hidden="true"></div>
     <div class="nube nube4" aria-hidden="true"></div>
-
-    <!-- ARCOÍRIS LATERALES -->
 
     <div class="arcoiris decorativo izquierda" aria-hidden="true">
       <div class="arco arco1"></div>
@@ -988,8 +1002,6 @@ footer p {
     <div class="etiqueta">
       Un pequeño milagro está en camino
     </div>
-
-    <!-- ARCOÍRIS PRINCIPAL -->
 
     <div class="arcoiris" aria-hidden="true">
       <div class="arco arco1"></div>
@@ -1017,7 +1029,7 @@ footer p {
     <div class="contador-portada">
 
       <p class="contador-titulo">
-        Faltan para nuestro gran día
+        Falta para nuestro gran día
       </p>
 
       <div class="contador">
@@ -1065,7 +1077,8 @@ footer p {
   </header>
 
   <!-- ==================================
-       MENSAJE
+       NUESTRA DULCE ESPERA
+       FONDO CREMA
   ================================== -->
 
   <section class="presentacion">
@@ -1106,6 +1119,7 @@ footer p {
 
   <!-- ==================================
        DETALLES
+       FONDO BEIGE
   ================================== -->
 
   <section class="detalles">
@@ -1176,6 +1190,7 @@ footer p {
 
   <!-- ==================================
        CÓDIGO DE VESTIMENTA
+       FONDO CREMA
   ================================== -->
 
   <section class="dresscode">
@@ -1207,8 +1222,6 @@ footer p {
         <p class="texto">
           Un estilo fresco, cómodo y con un toque de elegancia.
         </p>
-
-        <!-- PALETA DE 7 COLORES SIN NOMBRES -->
 
         <div class="paleta-colores">
 
@@ -1250,7 +1263,7 @@ footer p {
 
   <!-- ==================================
        LLUVIA DE REGALITOS
-       FONDO CREMA CLARO
+       FONDO BEIGE
   ================================== -->
 
   <section class="regalos">
@@ -1318,8 +1331,8 @@ footer p {
   </section>
 
   <!-- ==================================
-       CONFIRMACIÓN DE ASISTENCIA
-       FONDO BEIGE DIFERENCIADO
+       CONFIRMACIÓN
+       FONDO CREMA
   ================================== -->
 
   <section class="confirmacion">
@@ -1359,6 +1372,7 @@ footer p {
 
   <!-- ==================================
        DESPEDIDA
+       FONDO MARRÓN
   ================================== -->
 
   <footer>
@@ -1449,10 +1463,10 @@ function mostrarEntrada() {
 
   video.pause();
 
-  pantallaInicio.classList.remove("visible");
+  pantallaInicio.classList.add("oculto");
   pantallaFinal.classList.add("visible");
 
-  controlesVideo.style.display = "none";
+  controlesVideo.classList.remove("visible");
 
 }
 
@@ -1462,61 +1476,62 @@ video.addEventListener("error", mostrarEntrada);
 btnSaltar.addEventListener("click", mostrarEntrada);
 
 /* ==================================
-   REPRODUCCIÓN DEL VIDEO
+   INICIAR VIDEO SOLO CON EL BOTÓN
 ================================== */
 
-async function iniciarVideo() {
+btnIniciar.addEventListener("click", async () => {
+
+  video.pause();
+
+  video.currentTime = 0;
+  video.muted = false;
+  video.volume = 1;
+  video.playsInline = true;
 
   try {
 
-    video.muted = false;
-    video.volume = 1;
-
     await video.play();
+
+    pantallaInicio.classList.add("oculto");
+
+    controlesVideo.classList.add("visible");
 
     btnAudio.textContent = "Silenciar sonido";
 
   } catch (error) {
 
+    // Si el navegador no permite sonido,
+    // se intenta iniciar el video silenciado.
+    video.muted = true;
+
     try {
 
-      video.muted = true;
-
       await video.play();
+
+      pantallaInicio.classList.add("oculto");
+
+      controlesVideo.classList.add("visible");
 
       btnAudio.textContent = "Activar sonido";
 
     } catch (segundoError) {
 
-      pantallaInicio.classList.add("visible");
+      pantallaInicio.classList.remove("oculto");
+
+      alert(
+        "No se pudo reproducir el video. " +
+        "Verifica que portada.mp4 esté cargado."
+      );
 
     }
 
   }
 
-}
-
-btnIniciar.addEventListener("click", async () => {
-
-  video.pause();
-  video.currentTime = 0;
-  video.muted = false;
-
-  try {
-
-    await video.play();
-
-    pantallaInicio.classList.remove("visible");
-
-    btnAudio.textContent = "Silenciar sonido";
-
-  } catch (error) {
-
-    pantallaInicio.classList.add("visible");
-
-  }
-
 });
+
+/* ==================================
+   ACTIVAR O SILENCIAR AUDIO
+================================== */
 
 btnAudio.addEventListener("click", () => {
 
@@ -1585,7 +1600,7 @@ btnMusica.addEventListener("click", async () => {
 });
 
 /* ==================================
-   ENTRAR A INVITACIÓN
+   ENTRAR A LA INVITACIÓN
 ================================== */
 
 btnEntrar.addEventListener("click", () => {
@@ -1622,8 +1637,6 @@ btnEntrar.addEventListener("click", () => {
   },1100);
 
 });
-
-iniciarVideo();
 
 /* ==================================
    CUENTA REGRESIVA
