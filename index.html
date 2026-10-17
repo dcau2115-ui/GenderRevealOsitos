@@ -520,27 +520,23 @@ section {
   color:#806956;
 }
 
-/* 1. CREMA */
 .presentacion {
   background:var(--marfil);
 }
 
-/* 2. BEIGE */
 .detalles {
   background:#f0e3d3;
 }
 
-/* 3. CREMA */
 .dresscode {
   background:var(--marfil);
 }
 
-/* 4. BEIGE */
+/* SE CONSERVA EL FONDO BEIGE DE LA SECCIÓN */
 .regalos {
   background:#f0e3d3;
 }
 
-/* 5. CREMA */
 .confirmacion {
   background:var(--marfil);
 }
@@ -655,25 +651,29 @@ section {
 
 /* ==================================
    LLUVIA DE REGALITOS
+   CUADRO CLARO Y LISTA CENTRADA
 ================================== */
 
 .lista-regalos {
   max-width:610px;
   margin:35px auto 0;
-  padding:35px 35px 35px 55px;
-  text-align:left;
-  background:linear-gradient(
-    145deg,
-    #faf2e7,
-    #f0e1cd
-  );
+  padding:35px 25px;
+  text-align:center;
+
+  /* NUEVO FONDO MÁS CLARO */
+  background:#fffaf3;
+
   border:1px solid #dfc6a8;
   border-radius:20px;
+  box-shadow:0 8px 25px rgba(118,83,62,.06);
 }
 
 .lista-regalos ul {
-  padding-left:20px;
+  display:inline-block;
+  max-width:100%;
+  padding-left:22px;
   margin:0;
+  text-align:center;
 }
 
 .lista-regalos li {
@@ -681,6 +681,7 @@ section {
   color:#76533e;
   font-size:15px;
   line-height:1.8;
+  text-align:center;
 }
 
 .lista-regalos li::marker {
@@ -836,7 +837,7 @@ footer p {
   }
 
   .lista-regalos {
-    padding:28px 20px 28px 30px;
+    padding:28px 18px;
   }
 
   .lista-regalos li {
@@ -893,7 +894,7 @@ footer p {
 
 <!-- ==================================
      VIDEO INTRODUCTORIO
-     INICIA SOLO AL PULSAR EL BOTÓN
+     INICIA CON EL BOTÓN Y CON SONIDO
 ================================== -->
 
 <div id="intro">
@@ -910,14 +911,14 @@ footer p {
 
   <div id="pantallaInicio">
 
-    <h2>Sorpresaaaa...</h2>
+    <h2>Sorpersaaaaa...</h2>
 
     <p>
       Tenemos algo muy especial que compartir contigo.
     </p>
 
     <button class="btn-intro" id="btnIniciar" type="button">
-      INICIAR INVITACION 👆🏻
+      INICIAR INVITACIÓN
     </button>
 
   </div>
@@ -1078,7 +1079,6 @@ footer p {
 
   <!-- ==================================
        NUESTRA DULCE ESPERA
-       FONDO CREMA
   ================================== -->
 
   <section class="presentacion">
@@ -1119,7 +1119,6 @@ footer p {
 
   <!-- ==================================
        DETALLES
-       FONDO BEIGE
   ================================== -->
 
   <section class="detalles">
@@ -1190,7 +1189,6 @@ footer p {
 
   <!-- ==================================
        CÓDIGO DE VESTIMENTA
-       FONDO CREMA
   ================================== -->
 
   <section class="dresscode">
@@ -1263,7 +1261,7 @@ footer p {
 
   <!-- ==================================
        LLUVIA DE REGALITOS
-       FONDO BEIGE
+       FONDO DE SECCIÓN SIN CAMBIOS
   ================================== -->
 
   <section class="regalos">
@@ -1295,6 +1293,8 @@ footer p {
         Si deseas tener un detalle para nuestro bebé,
         aquí te dejamos algunas ideas.
       </p>
+
+      <!-- CUADRO CLARO CON LISTA CENTRADA -->
 
       <div class="lista-regalos">
 
@@ -1332,7 +1332,6 @@ footer p {
 
   <!-- ==================================
        CONFIRMACIÓN
-       FONDO CREMA
   ================================== -->
 
   <section class="confirmacion">
@@ -1371,8 +1370,7 @@ footer p {
   </section>
 
   <!-- ==================================
-       DESPEDIDA
-       FONDO MARRÓN
+       DESPEDIDA MARRÓN
   ================================== -->
 
   <footer>
@@ -1476,7 +1474,7 @@ video.addEventListener("error", mostrarEntrada);
 btnSaltar.addEventListener("click", mostrarEntrada);
 
 /* ==================================
-   INICIAR VIDEO SOLO CON EL BOTÓN
+   INICIAR VIDEO CON SONIDO
 ================================== */
 
 btnIniciar.addEventListener("click", async () => {
@@ -1500,8 +1498,6 @@ btnIniciar.addEventListener("click", async () => {
 
   } catch (error) {
 
-    // Si el navegador no permite sonido,
-    // se intenta iniciar el video silenciado.
     video.muted = true;
 
     try {
